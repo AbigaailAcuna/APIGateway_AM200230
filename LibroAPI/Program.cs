@@ -1,3 +1,5 @@
+using LibroAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibroAPI
 {
@@ -6,6 +8,9 @@ namespace LibroAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<LibroContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             // Add services to the container.
 
