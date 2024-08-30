@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using ProductoAPI.Models;
 
 namespace ProductoAPI
 {
@@ -6,6 +8,9 @@ namespace ProductoAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<ProductoContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add services to the container.
 

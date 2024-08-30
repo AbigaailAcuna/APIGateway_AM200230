@@ -1,5 +1,3 @@
-
-
 namespace APIGateway_AM200230
 {
     public class Program
